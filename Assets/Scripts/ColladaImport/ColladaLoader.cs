@@ -23,7 +23,7 @@ namespace Collada141
     
     public class ColladaLoader
     {
-        public GameObject Load(string inputFile)
+        public GameObject Load(string inputFile, bool importLight = false, bool importCamera = false)
         {
             COLLADA model = COLLADA.Load(inputFile);
             
@@ -494,6 +494,21 @@ namespace Collada141
                             }
                         }
                     }
+                }
+                else if (item is library_lights && importLight)
+                {
+//                    var lights = item as library_lights;
+//                    if (lights == null)
+//                        continue;
+//
+//                    foreach (var light in lights.light)
+//                    {
+//                    }
+                    throw new NotImplementedException();
+                }
+                else if (item is library_cameras && importCamera)
+                {
+                    throw new NotImplementedException();
                 }
             }
 
